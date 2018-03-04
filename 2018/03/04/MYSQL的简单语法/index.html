@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="学习," />
 
 
 
@@ -79,12 +79,139 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="GFAlisa'Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="MYSQL的简单语法
+由于上学期的数据库课上的知识很难满足现在的需求，所以打算从新学习一遍，可能是第一篇博客写的有点垃圾  (*￣rǒ￣)
+数据类型MYSQL数据库　常用数据类型：
+
+
+
+数据类型
+大小
+用途
+格式
+
+
+
+
+int
+4
+整数
+
+
+
+float
+4
+单精度浮点数
+
+
+
+double
+4
+双精度浮点数
+
+
+
+enum
+
+单选,比如性别
+enum(‘a’,’b’)
+
+
+set
+
+多选
+s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MYSQL的简单语法">
+<meta property="og:url" content="http://yoursite.com/2018/03/04/MYSQL的简单语法/index.html">
 <meta property="og:site_name" content="GFAlisa'Blog">
+<meta property="og:description" content="MYSQL的简单语法
+由于上学期的数据库课上的知识很难满足现在的需求，所以打算从新学习一遍，可能是第一篇博客写的有点垃圾  (*￣rǒ￣)
+数据类型MYSQL数据库　常用数据类型：
+
+
+
+数据类型
+大小
+用途
+格式
+
+
+
+
+int
+4
+整数
+
+
+
+float
+4
+单精度浮点数
+
+
+
+double
+4
+双精度浮点数
+
+
+
+enum
+
+单选,比如性别
+enum(‘a’,’b’)
+
+
+set
+
+多选
+s">
+<meta property="og:updated_time" content="2018-03-04T13:42:08.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GFAlisa'Blog">
+<meta name="twitter:title" content="MYSQL的简单语法">
+<meta name="twitter:description" content="MYSQL的简单语法
+由于上学期的数据库课上的知识很难满足现在的需求，所以打算从新学习一遍，可能是第一篇博客写的有点垃圾  (*￣rǒ￣)
+数据类型MYSQL数据库　常用数据类型：
+
+
+
+数据类型
+大小
+用途
+格式
+
+
+
+
+int
+4
+整数
+
+
+
+float
+4
+单精度浮点数
+
+
+
+double
+4
+双精度浮点数
+
+
+
+enum
+
+单选,比如性别
+enum(‘a’,’b’)
+
+
+set
+
+多选
+s">
 
 
 
@@ -114,13 +241,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/04/MYSQL的简单语法/"/>
 
 
 
 
 
-  <title>GFAlisa'Blog</title>
+  <title>MYSQL的简单语法 | GFAlisa'Blog</title>
   
 
 
@@ -139,8 +266,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -243,9 +369,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -275,9 +401,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/04/MYSQL的简单语法/" itemprop="url">MYSQL的简单语法</a></h1>
+          <h1 class="post-title" itemprop="name headline">MYSQL的简单语法</h1>
         
 
         <div class="post-meta">
@@ -349,9 +473,7 @@
       
 
       
-        
-          
-            <h1 id="MYSQL的简单语法"><a href="#MYSQL的简单语法" class="headerlink" title="MYSQL的简单语法"></a>MYSQL的简单语法</h1><hr>
+        <h1 id="MYSQL的简单语法"><a href="#MYSQL的简单语法" class="headerlink" title="MYSQL的简单语法"></a>MYSQL的简单语法</h1><hr>
 <p>由于上学期的数据库课上的知识很难满足现在的需求，所以打算从新学习一遍，可能是第一篇博客写的有点垃圾  (*￣rǒ￣)</p>
 <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><strong>MYSQL数据库</strong>　常用数据类型：</p>
 <table>
@@ -436,8 +558,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//插入数据</div><div class="line">insert into 表的名字(列名a,列名b,列名c) VALUES(值1,值2,值3);</div><div class="line"></div><div class="line">insert into user(id,username,password) values(1,&apos;admin&apos;,&apos;admin&apos;);</div><div class="line"></div><div class="line">其中varchar text date time enum char 的数据需要用单引号</div><div class="line">int float double 不需要</div></pre></td></tr></table></figure>
 <p>不定期更新，学习永无止境  ( =•ω•= )m</p>
 
-          
-        
       
     </div>
     
@@ -452,14 +572,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/学习/" rel="tag"># 学习</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -469,10 +595,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -480,6 +607,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -500,8 +631,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -561,6 +701,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MYSQL的简单语法"><span class="nav-number">1.</span> <span class="nav-text">MYSQL的简单语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.0.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的语法"><span class="nav-number">1.0.2.</span> <span class="nav-text">简单的语法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -694,6 +850,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
