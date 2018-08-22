@@ -79,16 +79,23 @@
 
 
 
-<meta name="description" content="这周啥也没干，混了一周">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Requests模块的总结">
-<meta property="og:url" content="http://yoursite.com/2018/04/21/Requests模块的总结/index.html">
+<meta property="og:title" content="webhacking三题">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/webhacking/index.html">
 <meta property="og:site_name" content="GFAlisa'Blog">
-<meta property="og:description" content="这周啥也没干，混了一周">
-<meta property="og:updated_time" content="2018-04-23T13:26:58.264Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTYhZV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTY4aT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTY5IU.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTYWq0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTYRrq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTtnJg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTtlyn.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTtKzj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/08/22/PTtQQs.png">
+<meta property="og:updated_time" content="2018-08-22T14:44:01.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Requests模块的总结">
-<meta name="twitter:description" content="这周啥也没干，混了一周">
+<meta name="twitter:title" content="webhacking三题">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/08/22/PTYhZV.png">
 
 
 
@@ -118,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/21/Requests模块的总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/20/webhacking/"/>
 
 
 
 
 
-  <title>Requests模块的总结 | GFAlisa'Blog</title>
+  <title>webhacking三题 | GFAlisa'Blog</title>
   
 
 
@@ -261,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/Requests模块的总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/webhacking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GFAlisa">
@@ -278,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Requests模块的总结</h1>
+          <h1 class="post-title" itemprop="name headline">webhacking三题</h1>
         
 
         <div class="post-meta">
@@ -290,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-21T23:23:27+08:00">
-                2018-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T11:30:00+08:00">
+                2018-07-20
               </time>
             
 
@@ -313,8 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python3/" itemprop="url" rel="index">
-                    <span itemprop="name">Python3</span>
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
                   </a>
                 </span>
 
@@ -351,50 +358,42 @@
 
       
         <hr>
-<p>这周啥也没干，混了一周<br><a id="more"></a></p>
-<h4 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div></pre></td></tr></table></figure>
-<h4 id="获取某个网页"><a href="#获取某个网页" class="headerlink" title="获取某个网页"></a>获取某个网页</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">'http://www.baidu.com'</span>)  //get类型获取</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(r)</div><div class="line">&lt;Response [<span class="number">200</span>]&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.post(<span class="string">'http://www.baidu.com'</span>) //post类型获取</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(r)</div><div class="line">&lt;Response [<span class="number">302</span>]&gt;</div></pre></td></tr></table></figure>
-<h4 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; import requests</div><div class="line">    # get类型传入参数</div><div class="line">&gt;&gt;&gt; r = requests.get(&apos;http://www.baidu.com&apos;,params=&#123;&apos;a&apos;:&apos;123&apos;&#125;)</div><div class="line">&gt;&gt;&gt; print(r.url)</div><div class="line">http://www.baidu.com/?a=123</div><div class="line"></div><div class="line">&gt;&gt;&gt; payload = &#123;&apos;a&apos;:&apos;123&apos;,&apos;b&apos;:&apos;456&apos;&#125;</div><div class="line">&gt;&gt;&gt; r = requests.get(&apos;http://www.baidu.com&apos;,params = payload)</div><div class="line">&gt;&gt;&gt; print(r.url)</div><div class="line">http://www.baidu.com/?b=456&amp;a=123</div><div class="line"></div><div class="line">	# post类型传入参数</div><div class="line">&gt;&gt;&gt; r = requests.post(&apos;http://www.baidu.com&apos;,data=&#123;&apos;a&apos;:&apos;123&apos;&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">r.text   //读取响应内容</div><div class="line">r.encoding   //查看编码格式</div><div class="line">r.encoding = &apos;utf8&apos; //设置编码格式</div><div class="line">r.content //二进制响应内容</div></pre></td></tr></table></figure>
-<h4 id="定制请求头"><a href="#定制请求头" class="headerlink" title="定制请求头"></a>定制请求头</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import requests</div><div class="line">url = &apos;http://xx.xx.xx.xxx&apos;</div><div class="line">user_agent = &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36&apos; </div><div class="line">headers = &#123; &apos;User-Agent&apos; : user_agent &#125; </div><div class="line">a = requests.get(url=url,headers=headers)</div><div class="line">print (a)</div><div class="line"></div><div class="line">&lt;Response [200]&gt;</div></pre></td></tr></table></figure>
-<p>其中在chrome浏览器地址栏输入chrome://version/ 查看用户代理</p>
-<h4 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import requests</div><div class="line">url = &apos;http://xx.xx.xx.xxx&apos;</div><div class="line">user_agent = &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36&apos; </div><div class="line">headers = &#123; &apos;User-Agent&apos; : user_agent &#125; </div><div class="line">cookies = dict(cookies_ =&apos;123456&apos;)</div><div class="line">a = requests.get(url=url,headers=headers,cookies=cookies)</div></pre></td></tr></table></figure>
-<h4 id="SSL-证书验证"><a href="#SSL-证书验证" class="headerlink" title="SSL 证书验证"></a>SSL 证书验证</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> io</div><div class="line"><span class="comment">#不会报UnicodeEncodeError: 'gbk' codec can't encode character '\xbb' in position xx 错误，且在cmd汉字不是乱码</span></div><div class="line">sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding=<span class="string">'gb18030'</span>)</div><div class="line">url = <span class="string">'https://www.baidu.com'</span></div><div class="line">user_agent = <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'</span> </div><div class="line">headers = &#123; <span class="string">'User-Agent'</span> : user_agent &#125; </div><div class="line">a = requests.get(url=url,headers=headers,verify=<span class="keyword">False</span>)</div><div class="line">print(a.text)</div></pre></td></tr></table></figure>
-<p>Requests 在处理HTTPS 请求验证 SSL 证书，SSL 验证默认是开启的，如果证书验证失败，Requests 会抛出 SSLError，所以你可以设置CA证书文件或者忽略它（verify=False）</p>
-<table>
-<thead>
-<tr>
-<th>编码名称</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>utf8</td>
-<td>所有语言</td>
-</tr>
-<tr>
-<td>gbk</td>
-<td>简体中文</td>
-</tr>
-<tr>
-<td>gb2312</td>
-<td>简体中文</td>
-</tr>
-<tr>
-<td>gb18030</td>
-<td>简体中文</td>
-</tr>
-<tr>
-<td>big5</td>
-<td>繁体中文</td>
-</tr>
-<tr>
-<td>big5hkscs</td>
-<td>繁体中文</td>
-</tr>
-</tbody>
-</table>
+<a id="more"></a>
+<h5 id="webchacking-kr-第5题"><a href="#webchacking-kr-第5题" class="headerlink" title="webchacking.kr  第5题"></a>webchacking.kr  第5题</h5><p>打开题目发现了两个按钮，分别是Login和join</p>
+<p>打开Login发现url是<a href="http://webhacking.kr/challenge/web/web-05/mem/login.php的" target="_blank" rel="external">http://webhacking.kr/challenge/web/web-05/mem/login.php的</a> 我们把login.php删掉发现了一个index of的目录，里面有一个join的php文件</p>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTYhZV.png" alt="">打开发现黑的没有边际，右键源代码发现了猫腻，这里我把js代码翻译了下，后来发现其实直接f12编译下就ok了   2333333<br><img src="https://s1.ax1x.com/2018/08/22/PTY4aT.png" alt=""><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">documnent.cookie</div><div class="line">if(eval(document.cookie)==-1)</div><div class="line">&#123;</div><div class="line">    bye;</div><div class="line">&#125;</div><div class="line">else(eval(document.URL).indexOf(mode=1))==-1</div><div class="line">&#123;</div><div class="line">    alert('access_denied');history.go(-1);</div><div class="line">&#125;</div><div class="line">else&#123;</div><div class="line">	document.write('&lt;font size=2 color=white&gt;Join&lt;/font&gt;&lt;p&gt;');</div><div class="line">	document.write('.&lt;p&gt;.&lt;p&gt;.&lt;p&gt;.&lt;p&gt;.&lt;p&gt;');</div><div class="line">	document.write('&lt;form method=post action='NaNoin.php&gt;');</div><div class="line">	document.write('&lt;table border=1&gt;&lt;tr&gt;&lt;td&gt;&lt;font color=gray&gt;id&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=text name='id' maxlength=5&gt;&lt;/td&gt;&lt;/tr&gt;');</div><div class="line">	document.write('&lt;tr&gt;&lt;td&gt;&lt;font color=gray&gt;pass&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=text name='NaNw' maxlength=10&gt;&lt;/td&gt;&lt;/tr&gt;');</div><div class="line">	document.write('&lt;tr align=center&gt;&lt;td colspan=2&gt;&lt;input type=submit&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;');</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>把第三个else中代码进行执行就得到一个登陆框</p>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTY5IU.png" alt=""></p>
+<p>做到这里心里有点小激动，然后噫~~~~  好像限制了字符长度，没想到真是</p>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTYWq0.png" alt=""></p>
+<p>用burp进行抓包，加点空格突破他的5的长度限制</p>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTYRrq.png" alt=""></p>
+<p>发现注册成功</p>
+<p>返回开头的Login按钮那，登录 过关</p>
+<h5 id="webchacking-kr-第24题"><a href="#webchacking-kr-第24题" class="headerlink" title="webchacking.kr  第24题"></a>webchacking.kr  第24题</h5><p>打开题目发现是一个关于ip的题，照常右键查看源代码发现index.phps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;?</div><div class="line"></div><div class="line">extract($_SERVER);</div><div class="line">extract($_COOKIE);</div><div class="line"></div><div class="line">if(!$REMOTE_ADDR) $REMOTE_ADDR=$_SERVER[REMOTE_ADDR];</div><div class="line"></div><div class="line">$ip=$REMOTE_ADDR;</div><div class="line">$agent=$HTTP_USER_AGENT;</div><div class="line"></div><div class="line"></div><div class="line">if($_COOKIE[REMOTE_ADDR])</div><div class="line">&#123;</div><div class="line">$ip=str_replace(&quot;12&quot;,&quot;&quot;,$ip);</div><div class="line">$ip=str_replace(&quot;7.&quot;,&quot;&quot;,$ip);</div><div class="line">$ip=str_replace(&quot;0.&quot;,&quot;&quot;,$ip);</div><div class="line">&#125;</div><div class="line"></div><div class="line">echo(&quot;&lt;table border=1&gt;&lt;tr&gt;&lt;td&gt;client ip&lt;/td&gt;&lt;td&gt;$ip&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;agent&lt;/td&gt;&lt;td&gt;$agent&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;);</div><div class="line"></div><div class="line">if($ip==&quot;127.0.0.1&quot;)</div><div class="line">&#123;</div><div class="line">@solve();</div><div class="line">&#125;</div><div class="line"></div><div class="line">else</div><div class="line">&#123;</div><div class="line">echo(&quot;&lt;p&gt;&lt;hr&gt;&lt;center&gt;Wrong IP!&lt;/center&gt;&lt;hr&gt;&quot;);</div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>看着有点长，其实很简单就是让ip等于127.0.0.1就可以了</p>
+<p>直接。。。。 坑 试了很多127.0.0.1发现不行，原来有过滤233333</p>
+<p>一条js代码搞定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.cookie =&quot;REMOTE_ADDR = 112277..00..00..1;&quot;;</div></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTtnJg.png" alt=""></p>
+<h5 id="webchacking-kr-第27题"><a href="#webchacking-kr-第27题" class="headerlink" title="webchacking.kr  第27题"></a>webchacking.kr  第27题</h5><p>打开题目右键发现index.phps</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?</div><div class="line">if($_GET[no])</div><div class="line">&#123;</div><div class="line"></div><div class="line">if(eregi(&quot;#|union|from|challenge|select|\(|\t|/|limit|=|0x&quot;,$_GET[no])) exit(&quot;no hack&quot;);</div><div class="line"></div><div class="line">$q=@mysql_fetch_array(mysql_query(&quot;select id from challenge27_table where id=&apos;guest&apos; and no=($_GET[no])&quot;)) or die(&quot;query error&quot;);</div><div class="line"></div><div class="line">if($q[id]==&quot;guest&quot;) echo(&quot;guest&quot;);</div><div class="line">if($q[id]==&quot;admin&quot;) @solve();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>从源码可以看出我们需要让id=admin才能过关，但是id这个没找到，但是有一个q变量，所以我们想办法把id给他变成admin就可以了</p>
+<p>分析源码得到它过滤了一些常用的字段，比如说“ = ” 这个常用的东东 这里可以使用like进行替代</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$q=@mysql_fetch_array(mysql_query(<span class="string">"select id from challenge27_table where id='guest' and no=($_GET[no])"</span>)) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"query error"</span>)id=<span class="string">'guest'</span> <span class="keyword">and</span> no=($_GET[no])<span class="string">")) or die("</span>query error<span class="string">");</span></div></pre></td></tr></table></figure>
+<p>这里我们必须<strong>select id from challenge27_table where id=’guest’ and no=</strong> 返回错误，否则就无法获得admin这个字段了，因为他id已经等于guest</p>
+<p>尝试payload</p>
+<p>-1) or no like 0 –  这个–后边有一个空格</p>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTtlyn.png" alt=""></p>
+<p>它返回了查询错误，接着试</p>
+<p>-1) or no like 1 –   </p>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTtKzj.png" alt=""></p>
+<p>发现返回了guest，说明构造的sql语句执行了，guest的id=1 那么admin的id可能为2嘛  </p>
+<p>继续试</p>
+<p>-1) or no like 2 –   </p>
+<p><img src="https://s1.ax1x.com/2018/08/22/PTtQQs.png" alt=""></p>
+<p>成功了（这个是我做过一遍，所以会是这样的）</p>
 
       
     </div>
@@ -425,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/30/MD5/" rel="next" title="MD5">
-                <i class="fa fa-chevron-left"></i> MD5
+              <a href="/2018/07/20/使用Docker搭建一个sqli-labs，简单的一批/" rel="next" title="Docker搭建sqli-labs">
+                <i class="fa fa-chevron-left"></i> Docker搭建sqli-labs
               </a>
             
           </div>
@@ -435,8 +434,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/17/docker使用未完/" rel="prev" title="Docker使用教程（未完）">
-                Docker使用教程（未完） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/30/FiercePhish的简单使用/" rel="prev" title="FiercePhish的简单使用">
+                FiercePhish的简单使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -587,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#导入模块"><span class="nav-number">1.</span> <span class="nav-text">导入模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取某个网页"><span class="nav-number">2.</span> <span class="nav-text">获取某个网页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传递参数"><span class="nav-number">3.</span> <span class="nav-text">传递参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定制请求头"><span class="nav-number">4.</span> <span class="nav-text">定制请求头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookies"><span class="nav-number">5.</span> <span class="nav-text">Cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL-证书验证"><span class="nav-number">6.</span> <span class="nav-text">SSL 证书验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#webchacking-kr-第5题"><span class="nav-number">1.</span> <span class="nav-text">webchacking.kr  第5题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webchacking-kr-第24题"><span class="nav-number">2.</span> <span class="nav-text">webchacking.kr  第24题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webchacking-kr-第27题"><span class="nav-number">3.</span> <span class="nav-text">webchacking.kr  第27题</span></a></li></ol></div>
             
 
           </div>
