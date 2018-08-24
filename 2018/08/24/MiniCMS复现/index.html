@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/08/24/P7OCR0.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/08/24/P7Opin.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/08/24/P7OPzV.png">
-<meta property="og:updated_time" content="2018-08-24T05:39:58.350Z">
+<meta property="og:updated_time" content="2018-08-24T05:47:30.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CVE-2018-9092-MiniCMS 1.10跨站请求伪造漏洞">
 <meta name="twitter:image" content="https://s1.ax1x.com/2018/08/24/P7O9Gq.png">
@@ -363,7 +363,9 @@
 <p>问题点如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if ($_POST[&apos;user_pass&apos;] != &apos;&apos; || $user_name_changed) &#123;</div><div class="line">  setcookie(&apos;mc_token&apos;, md5($mc_config[&apos;user_name&apos;].&apos;_&apos;.$mc_config[&apos;user_pass&apos;]));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>管理员在修改后台设置的时候，token只验证了登陆后的用户名和密码的md5，所以只要构造一个html页面即可重置管理员的密码</p>
-<h4 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h4><p>漏洞点</p>
+<h4 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h4><p>我在dockerhub上传了漏洞docker镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull gfattf1/minicms-1.10</div></pre></td></tr></table></figure>
+<p>漏洞点</p>
 <p><img src="https://s1.ax1x.com/2018/08/24/P7O9Gq.png" alt=""></p>
 <p>这里我们的用户名是admin密码是123456</p>
 <p>构造exp</p>
