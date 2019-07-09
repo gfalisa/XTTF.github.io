@@ -16,12 +16,12 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python编程">
-<meta property="og:url" content="http://yoursite.com/2018/03/21/python编程/index.html">
+<meta property="og:title" content="19年上半年总结">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/19年上半年总结/index.html">
 <meta property="og:site_name" content="XTTF的小屋">
-<meta property="og:updated_time" content="2018-08-30T07:12:08.509Z">
+<meta property="og:updated_time" content="2019-07-09T06:14:04.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python编程">
+<meta name="twitter:title" content="19年上半年总结">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +53,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Python编程 | XTTF的小屋</title>
+<title>19年上半年总结 | XTTF的小屋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -239,11 +239,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-python编程" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-19年上半年总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/21/python编程/" class="article-date">
-      <time datetime="2018-03-21T15:23:27.000Z" itemprop="datePublished">2018-03-21</time>
+      <a href="/2019/07/09/19年上半年总结/" class="article-date">
+      <time datetime="2019-07-09T04:00:29.000Z" itemprop="datePublished">2019-07-09</time>
 </a>
 
 
@@ -258,7 +258,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Python编程
+      19年上半年总结
     </h1>
   
 
@@ -267,7 +267,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Python3/">Python3</a>
+    <a class="article-category-link" href="/categories/总结/">总结</a>
     </div>
 
 
@@ -285,12 +285,13 @@
           
         <hr>
 <a id="more"></a>
-<h4 id="python小代码"><a href="#python小代码" class="headerlink" title="python小代码"></a>python小代码</h4><h5 id="1-过滤列表中的负数-使用列表解析"><a href="#1-过滤列表中的负数-使用列表解析" class="headerlink" title="1.过滤列表中的负数(使用列表解析)"></a>1.过滤列表中的负数(使用列表解析)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)]</div><div class="line">print(data,end=<span class="string">' '</span>)</div><div class="line"></div><div class="line">filter(<span class="keyword">lambda</span> x: x&gt;=<span class="number">0</span>,data)  <span class="comment">#使用filter，时间长不推荐</span></div><div class="line"></div><div class="line">b = [x <span class="keyword">for</span> x <span class="keyword">in</span> data <span class="keyword">if</span> x&gt;=<span class="number">0</span>]  <span class="comment">#使用列表解析</span></div><div class="line">print(b)</div></pre></td></tr></table></figure>
-<h5 id="2-筛选字典高于90的项-使用字典解析"><a href="#2-筛选字典高于90的项-使用字典解析" class="headerlink" title="2.筛选字典高于90的项(使用字典解析)"></a>2.筛选字典高于90的项(使用字典解析)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">d = &#123;x : randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</div><div class="line">b = &#123;k : v <span class="keyword">for</span> k,v <span class="keyword">in</span> d.items() <span class="keyword">if</span> v &gt;<span class="number">90</span>&#125;</div><div class="line">print(b)</div></pre></td></tr></table></figure>
-<h5 id="3-集合解析"><a href="#3-集合解析" class="headerlink" title="3.集合解析"></a>3.集合解析</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">from random import randint</div><div class="line"></div><div class="line">data = [randint(-10,10) for _ in range(10)]</div><div class="line">s = set(data)</div><div class="line">c = &#123;x for x in s if x % 3 == 0 &#125;</div><div class="line">print(c)</div></pre></td></tr></table></figure>
-<h5 id="4-使用namedtuple为每个元组的值命名"><a href="#4-使用namedtuple为每个元组的值命名" class="headerlink" title="4.使用namedtuple为每个元组的值命名"></a>4.使用namedtuple为每个元组的值命名</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</div><div class="line"></div><div class="line">stu = namedtuple(<span class="string">'stu'</span>,[<span class="string">'name'</span>,<span class="string">'age'</span>,<span class="string">'sex'</span>,<span class="string">'email'</span>])</div><div class="line">s = stu(<span class="string">'jim'</span>,<span class="number">16</span>,<span class="string">'male'</span>,<span class="string">'1@qq.com'</span>)</div><div class="line">print(s.name)</div></pre></td></tr></table></figure>
-<h5 id="二-统计元素出现的频度"><a href="#二-统计元素出现的频度" class="headerlink" title="二 统计元素出现的频度"></a>二 统计元素出现的频度</h5><h6 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"></div><div class="line">data = [randint(<span class="number">0</span>,<span class="number">20</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">30</span>)]</div><div class="line"></div><div class="line">c = dict.fromkeys(data,<span class="number">0</span>)</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> data:</div><div class="line">    c[x] += <span class="number">1</span></div><div class="line">print(c)</div></pre></td></tr></table></figure>
-<h6 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</div><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</div><div class="line"></div><div class="line">data = [randint(<span class="number">0</span>,<span class="number">20</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">30</span>)]</div><div class="line">c2 = Counter(data)</div><div class="line">print(c2)</div><div class="line"><span class="comment">#出现最高的3个字母</span></div><div class="line">c3 = c2.most_common(<span class="number">3</span>)</div><div class="line">print(c3)</div></pre></td></tr></table></figure>
+<p>总结下我19年这半年的所作所为</p>
+<h4 id="0x00-毕业设计"><a href="#0x00-毕业设计" class="headerlink" title="0x00  毕业设计"></a>0x00  毕业设计</h4><p>没错，这段时间正值我大四写论文的时间，这件事情持续时间跨度达半年时间，期间我在我指导老师的帮助下完成了毕业答辩，同时也为自己的大学生涯画上句号。至于毕业设计做了什么，答案是我为我们社团的学弟学妹（貌似没有学妹，哭唧唧）做了一个CTF的系统。</p>
+<h4 id="0x01-关于实习"><a href="#0x01-关于实习" class="headerlink" title="0x01 关于实习"></a>0x01 关于实习</h4><p>今年3月份开始在安恒信息实习，认识了许多大佬同时也学到了很多东西，最后因为很多原因没能继续在安恒工作和学习</p>
+<h4 id="0x02-关于计划"><a href="#0x02-关于计划" class="headerlink" title="0x02 关于计划"></a>0x02 关于计划</h4><p>1.继续在Web安全的海洋中飘荡</p>
+<p>2.重新学一遍PHP和Python</p>
+<p>3.学学内网</p>
+<p>4.接着在Hackerone挖漏洞，毕竟比国内挣钱多了</p>
 
       
     </div>
@@ -299,13 +300,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/21/python编程/">Python编程</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/09/19年上半年总结/">19年上半年总结</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">XTTF</a></p>
-        <p><span>发布时间:</span>2018-03-21, 23:23:27</p>
-        <p><span>最后更新:</span>2018-08-30, 15:12:08</p>
+        <p><span>发布时间:</span>2019-07-09, 12:00:29</p>
+        <p><span>最后更新:</span>2019-07-09, 14:14:04</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/21/python编程/" title="Python编程">http://yoursite.com/2018/03/21/python编程/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/21/python编程/　　作者: XTTF" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/09/19年上半年总结/" title="19年上半年总结">http://yoursite.com/2019/07/09/19年上半年总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/07/09/19年上半年总结/　　作者: XTTF" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -317,12 +318,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/03/23/MySQL语法/">
-                    MySQL语法
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/30/HongCMS 3.0.0 SQL注入漏洞/">
+                    HongCMS 3.0.0 SQL注入漏洞
                 </a>
             </div>
-        
         
     </nav>
 
@@ -332,7 +333,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#python小代码"><span class="toc-number">1.</span> <span class="toc-text">python小代码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-过滤列表中的负数-使用列表解析"><span class="toc-number">1.1.</span> <span class="toc-text">1.过滤列表中的负数(使用列表解析)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-筛选字典高于90的项-使用字典解析"><span class="toc-number">1.2.</span> <span class="toc-text">2.筛选字典高于90的项(使用字典解析)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-集合解析"><span class="toc-number">1.3.</span> <span class="toc-text">3.集合解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-使用namedtuple为每个元组的值命名"><span class="toc-number">1.4.</span> <span class="toc-text">4.使用namedtuple为每个元组的值命名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二-统计元素出现的频度"><span class="toc-number">1.5.</span> <span class="toc-text">二 统计元素出现的频度</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#方法一"><span class="toc-number">1.5.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#方法二"><span class="toc-number">1.5.2.</span> <span class="toc-text">方法二</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x00-毕业设计"><span class="toc-number">1.</span> <span class="toc-text">0x00  毕业设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01-关于实习"><span class="toc-number">2.</span> <span class="toc-text">0x01 关于实习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x02-关于计划"><span class="toc-number">3.</span> <span class="toc-text">0x02 关于计划</span></a></li></ol>
         
     </div>
     <style>
@@ -368,7 +369,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Python编程　| XTTF的小屋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"19年上半年总结　| XTTF的小屋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -388,15 +389,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/23/MySQL语法/" title="上一篇: MySQL语法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/08/30/HongCMS 3.0.0 SQL注入漏洞/" title="下一篇: HongCMS 3.0.0 SQL注入漏洞">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
