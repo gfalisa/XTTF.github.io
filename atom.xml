@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-09T06:14:04.445Z</updated>
+  <updated>2019-10-13T09:52:02.384Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何找到更多的域名之SSL证书</title>
+    <link href="http://yoursite.com/2019/10/13/%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%9F%9F%E5%90%8D%E4%B9%8BSSL%E8%AF%81%E4%B9%A6/"/>
+    <id>http://yoursite.com/2019/10/13/如何找到更多的域名之SSL证书/</id>
+    <published>2019-10-13T08:13:36.000Z</published>
+    <updated>2019-10-13T09:52:02.384Z</updated>
+    
+    <content type="html"><![CDATA[<hr><a id="more"></a><h4 id="如何找到更多的域名之SSL证书"><a href="#如何找到更多的域名之SSL证书" class="headerlink" title="如何找到更多的域名之SSL证书"></a>如何找到更多的域名之SSL证书</h4><p>简单的来说就是服务器SSL证书，常见的网站前面的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://www.domain.com</div></pre></td></tr></table></figure><p>这里推荐一个网站certdb，当然除了这个还有几个网站，我感觉第一个挺不错的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">https://certdb.com</div><div class="line">https://crt.sh</div><div class="line">https://censys.io/</div></pre></td></tr></table></figure><p>那么，使用下</p><p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191013173553.png" alt=""></p><p>这是一个英文网站，中间的搜索框写域名即可，这里举一个例子就是baidu</p><p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/1570959603062.png" alt=""></p><p>点击DETAILS（详情），在新页面拉到底部</p><p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191013174052.png" alt=""></p><p>一共4096个相关域名</p><p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191013174555.png" alt=""></p><p>通过这张图能获得许多信息，可以挖各种漏洞，比如子域名接管（hackerone给的特别多，还是美刀）</p><p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191013174456.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+    
+    </summary>
+    
+      <category term="信息搜集" scheme="http://yoursite.com/categories/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>19年上半年总结</title>
