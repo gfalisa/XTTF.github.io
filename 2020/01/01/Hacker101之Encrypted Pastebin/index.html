@@ -16,16 +16,17 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="我用shodan的那些日子">
-<meta property="og:url" content="http://yoursite.com/2019/11/08/我用shodan的那些日子/index.html">
+<meta property="og:title" content="Hacker101之Encrypted Pastebin题解">
+<meta property="og:url" content="http://yoursite.com/2020/01/01/Hacker101之Encrypted Pastebin/index.html">
 <meta property="og:site_name" content="XTTF的小屋">
-<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191109135542.png">
-<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191109140451.png">
-<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191109140704.png">
-<meta property="og:updated_time" content="2019-11-09T06:15:27.944Z">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101013713.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101014229.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101015206.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101194326.png">
+<meta property="og:updated_time" content="2020-01-01T11:49:29.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我用shodan的那些日子">
-<meta name="twitter:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191109135542.png">
+<meta name="twitter:title" content="Hacker101之Encrypted Pastebin题解">
+<meta name="twitter:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101013713.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>我用shodan的那些日子 | XTTF的小屋</title>
+<title>Hacker101之Encrypted Pastebin题解 | XTTF的小屋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -245,11 +246,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-我用shodan的那些日子" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Hacker101之Encrypted Pastebin" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/11/08/我用shodan的那些日子/" class="article-date">
-      <time datetime="2019-11-08T04:13:36.000Z" itemprop="datePublished">2019-11-08</time>
+      <a href="/2020/01/01/Hacker101之Encrypted Pastebin/" class="article-date">
+      <time datetime="2020-01-01T04:13:36.000Z" itemprop="datePublished">2020-01-01</time>
 </a>
 
 
@@ -264,7 +265,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      我用shodan的那些日子
+      Hacker101之Encrypted Pastebin题解
     </h1>
   
 
@@ -273,7 +274,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/信息搜集/">信息搜集</a>
+    <a class="article-category-link" href="/categories/CTF/">CTF</a>
     </div>
 
 
@@ -291,19 +292,26 @@
           
         <hr>
 <a id="more"></a>
-<p>​    想当年第一次见到shodan还是一群大佬讨论摄像头的时候，当我打开大佬们的连接后，给我打开了新世界的大门，原来还有这等神器进行信息搜集。</p>
-<p>​    在注册账号使用了一段时间后，我发现还是有个会员好使点，后来靠着臭不要脸的精神白嫖到一个账号（nice，爽），然后shodan便成为我挖漏洞前必备的神器。</p>
-<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191109135542.png" alt=""></p>
-<p>看，它长这样，它也有许多搜索语法就像google一样，这里列举我常用的几个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">http.title:&quot;关键字&quot;  // 用来查找标题包含关键字的</div><div class="line">http.html:&quot;关键字&quot;   // 用来查找html中包含关键字的</div><div class="line">country:&quot;CN&quot;   // 用来查找中国站点</div><div class="line"></div><div class="line">当使用组合查询时要这样使用</div><div class="line">http.title:&quot;关键字&quot; http.title:&quot;关键字&quot; 没错关键字得分开写</div></pre></td></tr></table></figure>
-<p>我目前常用的就这三个（确实用的有点少）</p>
-<p>用上面的来举个例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http.title:登录 country:&quot;CN&quot;</div></pre></td></tr></table></figure>
-<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191109140451.png" alt=""></p>
-<p>配合弱口令也能收割一些漏洞，当然侧边的过滤条件也可以选择</p>
-<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20191109140704.png" alt=""></p>
-<p>点击后会出现在搜索的条件中，shodan是不是很不错啊（前提你需要一个会员，没会员玩个蛋）</p>
-
+<p>打开链接<a href="http://35.227.24.107/b3494b3299/" target="_blank" rel="external">http://35.227.24.107/b3494b3299/</a></p>
+<p>发现是一行字，两个框外加一个按钮。</p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101013713.png" alt=""></p>
+<p>这里测试输入test/test 通过burp抓包发现，发现存在一个<code>post</code>参数，这里可以测试下（修改下值）</p>
+<h4 id="第一个Flag"><a href="#第一个Flag" class="headerlink" title="第一个Flag"></a>第一个Flag</h4><p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101014229.png" alt=""></p>
+<p>这里我把post参数的值改成了1，得到第一个flag <code>0fbf9a7732fdac03005363563db2a3b0a08d0735a61cfc4c9369cc3eab69d27b</code></p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101015206.png" alt=""></p>
+<h4 id="第二个Flag"><a href="#第二个Flag" class="headerlink" title="第二个Flag"></a>第二个Flag</h4><p>接下来找第二个flag，现在唯一有用的貌似就是那个报错信息了,看这个应该是用了base64之类的，然后题目在最开始提示了AES加密</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"./main.py"</span>, line 69, <span class="keyword">in</span> index</div><div class="line">    post = json.loads(decryptLink(postCt).decode(<span class="string">'utf8'</span>))</div><div class="line">  File <span class="string">"./common.py"</span>, line 46, <span class="keyword">in</span> decryptLink</div><div class="line">    data = b64d(data)</div><div class="line">  File <span class="string">"./common.py"</span>, line 11, <span class="keyword">in</span> &lt;lambda&gt;</div><div class="line">    b64d = lambda x: base64.decodestring(x.replace(<span class="string">'~'</span>, <span class="string">'='</span>).replace(<span class="string">'!'</span>, <span class="string">'/'</span>).replace(<span class="string">'-'</span>, <span class="string">'+'</span>))</div><div class="line">  File <span class="string">"/usr/local/lib/python2.7/base64.py"</span>, line 328, <span class="keyword">in</span> decodestring</div><div class="line">    <span class="built_in">return</span> binascii.a2b_base64(s)</div><div class="line">Error: Incorrect padding   //base64填充错误</div></pre></td></tr></table></figure>
+<p>首先根据里面的替换规则把base64替换下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://35.227.24.107/7c4322d4f4/?post=UDbJkUKc6eXpmQfzSXPEyDqntXYEW/kR1FQc3qp59PYi7CBgZZHuVw2ITv44vlKS4YZyMtLB5rY+ynJYijjn6WSQ2+OYcXdUa6n6HZoevmcId2dFnuMgd1dOl6tFi6JlYc00KD87wqgvumyMFEhPy4j9LsnHF7Dly7O6fXaZ0WMlFWVM2NZE3koOoCPsz0JoUd5E3Bf9gByJ+bZQgt6oqA==</div></pre></td></tr></table></figure>
+<p>这里卡住了，懵逼中，在几个小时一直在burp上测试，后来发现把post参数值留空发现了报错信息变了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"./main.py"</span>, line 69, <span class="keyword">in</span> index</div><div class="line">    post = json.loads(decryptLink(postCt).decode(<span class="string">'utf8'</span>))</div><div class="line">  File <span class="string">"./common.py"</span>, line 48, <span class="keyword">in</span> decryptLink</div><div class="line">    cipher = AES.new(staticKey, AES.MODE_CBC, iv)</div><div class="line">  File <span class="string">"/usr/local/lib/python2.7/site-packages/Crypto/Cipher/AES.py"</span>, line 95, <span class="keyword">in</span> new</div><div class="line">    <span class="built_in">return</span> AESCipher(key, *args, **kwargs)</div><div class="line">  File <span class="string">"/usr/local/lib/python2.7/site-packages/Crypto/Cipher/AES.py"</span>, line 59, <span class="keyword">in</span> __init__</div><div class="line">    blockalgo.BlockAlgo.__init__(self, _AES, key, *args, **kwargs)</div><div class="line">  File <span class="string">"/usr/local/lib/python2.7/site-packages/Crypto/Cipher/blockalgo.py"</span>, line 141, <span class="keyword">in</span> __init__</div><div class="line">    self._cipher = factory.new(key, *args, **kwargs)</div><div class="line">ValueError: IV must be 16 bytes long</div></pre></td></tr></table></figure>
+<p>这里我搜了下AES.MODE_CBC，结合上面Incorrect padding 去google了一把找到了这个问题The CBC Padding Oracle Problem链接如下 <a href="https://eklitzke.org/the-cbc-padding-oracle-problem" target="_blank" rel="external">https://eklitzke.org/the-cbc-padding-oracle-problem</a> 因为我没搞过密码学的东西，所以只能去搜下有没有工具一类的，通过Google发现了kali下有一个叫<code>PadBuster</code>的工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./padBuster.pl &quot;http://35.227.24.107/7c4322d4f4/?post=UDbJkUKc6eXpmQfzSXPEyDqntXYEW/kR1FQc3qp59PYi7CBgZZHuVw2ITv44vlKS4YZyMtLB5rY+ynJYijjn6WSQ2+OYcXdUa6n6HZoevmcId2dFnuMgd1dOl6tFi6JlYc00KD87wqgvumyMFEhPy4j9LsnHF7Dly7O6fXaZ0WMlFWVM2NZE3koOoCPsz0JoUd5E3Bf9gByJ+bZQgt6oqA==&quot; UDbJkUKc6eXpmQfzSXPEyDqntXYEW/kR1FQc3qp59PYi7CBgZZHuVw2ITv44vlKS4YZyMtLB5rY+ynJYijjn6WSQ2+OYcXdUa6n6HZoevmcId2dFnuMgd1dOl6tFi6JlYc00KD87wqgvumyMFEhPy4j9LsnHF7Dly7O6fXaZ0WMlFWVM2NZE3koOoCPsz0JoUd5E3Bf9gByJ+bZQgt6oqA== 16 -encoding 0</div></pre></td></tr></table></figure>
+<p>这样跑一下就出结果了，因为我网络的原因我跑不出来。跑了一下午也就跑出了这个（我太难了）</p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200101194326.png" alt=""></p>
+<p>这样相当于解决了第二个flag</p>
+<h4 id="第三个Flag"><a href="#第三个Flag" class="headerlink" title="第三个Flag"></a>第三个Flag</h4><p>先学下AES加密之类的，先溜了。。。。。。。</p>
+<h4 id="第四个Flag"><a href="#第四个Flag" class="headerlink" title="第四个Flag"></a>第四个Flag</h4>
       
     </div>
     
@@ -311,13 +319,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/11/08/我用shodan的那些日子/">我用shodan的那些日子</a></p>
+        <p><span>本文标题:</span><a href="/2020/01/01/Hacker101之Encrypted Pastebin/">Hacker101之Encrypted Pastebin题解</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">XTTF</a></p>
-        <p><span>发布时间:</span>2019-11-08, 12:13:36</p>
-        <p><span>最后更新:</span>2019-11-09, 14:15:27</p>
+        <p><span>发布时间:</span>2020-01-01, 12:13:36</p>
+        <p><span>最后更新:</span>2020-01-01, 19:49:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/11/08/我用shodan的那些日子/" title="我用shodan的那些日子">http://yoursite.com/2019/11/08/我用shodan的那些日子/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/11/08/我用shodan的那些日子/　　作者: XTTF" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/01/01/Hacker101之Encrypted Pastebin/" title="Hacker101之Encrypted Pastebin题解">http://yoursite.com/2020/01/01/Hacker101之Encrypted Pastebin/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/01/01/Hacker101之Encrypted Pastebin/　　作者: XTTF" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -329,16 +337,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/12/15/UA Literally Vulnerable实验/">
-                    Literally Vulnerable实验
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/11/02/2019_11_2/">
-                    自己太菜了
+                <a href="/2019/12/15/UA Literally Vulnerable实验/">
+                    Literally Vulnerable实验
                 </a>
             </div>
         
@@ -350,7 +352,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一个Flag"><span class="toc-number">1.</span> <span class="toc-text">第一个Flag</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二个Flag"><span class="toc-number">2.</span> <span class="toc-text">第二个Flag</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三个Flag"><span class="toc-number">3.</span> <span class="toc-text">第三个Flag</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四个Flag"><span class="toc-number">4.</span> <span class="toc-text">第四个Flag</span></a></li></ol>
         
     </div>
     <style>
@@ -386,7 +388,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"我用shodan的那些日子　| XTTF的小屋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Hacker101之Encrypted Pastebin题解　| XTTF的小屋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -406,15 +408,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/12/15/UA Literally Vulnerable实验/" title="上一篇: Literally Vulnerable实验">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/11/02/2019_11_2/" title="下一篇: 自己太菜了">
+            <a href="/2019/12/15/UA Literally Vulnerable实验/" title="下一篇: Literally Vulnerable实验">
                 <i class="fa fa-angle-right"></i>
             </a>
         
