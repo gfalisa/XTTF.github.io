@@ -16,12 +16,21 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="自己太菜了">
-<meta property="og:url" content="http://yoursite.com/2019/11/02/2019_11_2/index.html">
+<meta property="og:title" content="Web安全练习（一）">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/Web安全练习（一）/index.html">
 <meta property="og:site_name" content="XTTF的小屋">
-<meta property="og:updated_time" content="2019-11-02T05:51:37.578Z">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217180405.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217181757.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217182642.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217184038.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217184311.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217195453.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217195609.png">
+<meta property="og:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217201115.png">
+<meta property="og:updated_time" content="2020-02-18T00:41:40.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自己太菜了">
+<meta name="twitter:title" content="Web安全练习（一）">
+<meta name="twitter:image" content="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217180405.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +62,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>自己太菜了 | XTTF的小屋</title>
+<title>Web安全练习（一） | XTTF的小屋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -241,11 +250,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-2019_11_2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Web安全练习（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/11/02/2019_11_2/" class="article-date">
-      <time datetime="2019-11-02T04:23:27.000Z" itemprop="datePublished">2019-11-02</time>
+      <a href="/2020/02/08/Web安全练习（一）/" class="article-date">
+      <time datetime="2020-02-08T04:13:36.000Z" itemprop="datePublished">2020-02-08</time>
 </a>
 
 
@@ -260,7 +269,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      自己太菜了
+      Web安全练习（一）
     </h1>
   
 
@@ -268,6 +277,10 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/CTF/">CTF</a>
+    </div>
+
 
         
     <div class="article-tag tagcloud">
@@ -283,10 +296,44 @@
           
         <hr>
 <a id="more"></a>
-<p>​    我写这话想到什么说什么，从小作文就不好    </p>
-<p>​    我把之前的文章都删掉了，可能是因为自己大学并没有学到什么东西（大部分时间在考虑社团发展），导致自己没有好好规划自己的学习路线。这几天看到自己之前的写的像是在水文章一样，还不如删掉重新写。</p>
-<p>​    以后打算专注Python当然其他的东西也要搞，不然只会Python感觉很Low不过这都是后话了，现在在一家甲方做安全，每天说真的事情不多，所以要充分利用时间学习，万一有大佬推荐，想想就激动。</p>
-<p>​    </p>
+<p>web安全实战为主，但是未授权网站违法，故做点CTF的题，本想从实验吧开始无奈还在维护，所以从南邮CTF入手</p>
+<h4 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h4><p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217180405.png" alt=""></p>
+<p>直接出答案，最简单的题</p>
+<h4 id="md5-collision"><a href="#md5-collision" class="headerlink" title="md5 collision"></a>md5 collision</h4><p>这道题，给了一段PHP代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$md51 = md5(<span class="string">'QNKCDZO'</span>);</div><div class="line">$a = @$_GET[<span class="string">'a'</span>];</div><div class="line">$md52 = @md5($a);</div><div class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($a))&#123;</div><div class="line"><span class="keyword">if</span> ($a != <span class="string">'QNKCDZO'</span> &amp;&amp; $md51 == $md52) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"nctf&#123;*****************&#125;"</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"false!!!"</span>;</div><div class="line">&#125;&#125;</div><div class="line"><span class="keyword">else</span>&#123;<span class="keyword">echo</span> <span class="string">"please input a"</span>;&#125;</div></pre></td></tr></table></figure>
+<p>首先对<code>md51</code>的值进行md5加密，然后用户输入一个<code>md52</code>的值，但是用户输入的字符不能和<code>md51</code>一样同时md5值要相同。</p>
+<p>这里一共有两个知识点，md5 <code>0e</code>开头和<code>==</code>在<code>php</code>中存在的问题</p>
+<p>首先我们先解决第一个问题，对<code>QNKCDZO</code>进行<code>md5</code>加密得到<code>0e830400451993494058024219903391</code> </p>
+<p>第二个问题关于<code>==</code>在<code>php</code>中存在的安全问题，PHP在处理哈希字符串时，会利用<code>!=</code>或<code>==</code>来对哈希值进行比较，它把每一个以<code>0E</code>开头的哈希值都解释为0</p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217181757.png" alt=""></p>
+<p>所以这里找一个0e开头的字符串就ok了，比如<code>s878926199a</code>对应<code>0e545993274517709034328855841020</code></p>
+<h4 id="签到2"><a href="#签到2" class="headerlink" title="签到2"></a>签到2</h4><p>这也是一道简单题，不会做就先右键看看源码</p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217182642.png" alt=""></p>
+<p>这个口令绝对比10个字符要长，所以改下长度就好</p>
+<h4 id="这题不是web"><a href="#这题不是web" class="headerlink" title="这题不是web"></a>这题不是web</h4><p>打开题发现一个动图，不是web就下载图片，<code>cat 2.gif</code> 即可看到flag</p>
+<h4 id="层层递进"><a href="#层层递进" class="headerlink" title="层层递进"></a>层层递进</h4><p>打开先查看源码，发现一个<code>SO.html</code>打开，在看源码发现一个<code>S0.html</code>，再看源码，到最后找到一个<code>404.html</code></p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217184038.png" alt=""></p>
+<p>右键源码中拿到flag</p>
+<h4 id="AAencode"><a href="#AAencode" class="headerlink" title="AAencode"></a>AAencode</h4><p>打开网站发现这个</p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217184311.png" alt=""></p>
+<p>题目提示<code>aaencode</code>，google到一个网站<code>http://www.atoolbox.net/Tool.php?Id=703</code>解密到flag</p>
+<h4 id="单身二十年"><a href="#单身二十年" class="headerlink" title="单身二十年"></a>单身二十年</h4><p>打开先看源码</p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217195453.png" alt=""></p>
+<p>点击进去，发现跳转到<code>no_key_is_here_forever.php</code> ，这里应该使用了js进行跳转</p>
+<p>这里我直接使用了burp进行抓包，发现使用了<code>window.location=</code> </p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217195609.png" alt=""></p>
+<p>拿到flag</p>
+<h4 id="PHP-encode"><a href="#PHP-encode" class="headerlink" title="PHP encode"></a>PHP encode</h4><p>一道看源码的题，那么分析下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CLsI</span><span class="params">($ZzvSWE)</span> </span>&#123;</div><div class="line"> </div><div class="line">    $ZzvSWE = gzinflate(base64_decode($ZzvSWE));</div><div class="line"> </div><div class="line">    <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; strlen($ZzvSWE); $i++) &#123;</div><div class="line"> </div><div class="line">        $ZzvSWE[$i] = chr(ord($ZzvSWE[$i]) - <span class="number">1</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> $ZzvSWE;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"><span class="keyword">eval</span>(CLsI(<span class="string">"+7DnQGFmYVZ+eoGmlg0fd3puUoZ1fkppek1GdVZhQnJSSZq5aUImGNQBAA=="</span>));</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>直接找个php沙盒运行，需要把eval改成echo</p>
+<p><img src="https://blog-xttf.oss-cn-beijing.aliyuncs.com/20200217201115.png" alt=""></p>
+<h4 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h4><p>使用<code>php://filter</code>协议包含<code>index.php</code>文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php:<span class="comment">//filter/read=convert.base64-encode/resource=index.php</span></div></pre></td></tr></table></figure>
+<p>得到base64加密文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PGh0bWw+CiAgICA8dGl0bGU+YXNkZjwvdGl0bGU+CiAgICAKPD9waHAKCWVycm9yX3JlcG9ydGluZygwKTsKCWlmKCEkX0dFVFtmaWxlXSl7ZWNobyAnPGEgaHJlZj0iLi9pbmRleC5waHA/ZmlsZT1zaG93LnBocCI+Y2xpY2sgbWU/IG5vPC9hPic7fQoJJGZpbGU9JF9HRVRbJ2ZpbGUnXTsKCWlmKHN0cnN0cigkZmlsZSwiLi4vIil8fHN0cmlzdHIoJGZpbGUsICJ0cCIpfHxzdHJpc3RyKCRmaWxlLCJpbnB1dCIpfHxzdHJpc3RyKCRmaWxlLCJkYXRhIikpewoJCWVjaG8gIk9oIG5vISI7CgkJZXhpdCgpOwoJfQoJaW5jbHVkZSgkZmlsZSk7IAovL2ZsYWc6bmN0ZntlZHVsY25pX2VsaWZfbGFjb2xfc2lfc2lodH0KCj8+CjwvaHRtbD4=</div></pre></td></tr></table></figure>
+<p>解密即得到flag</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>从这里学到了一些东西</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 关于php://filter协议进行文件包含进行源码泄露</div><div class="line">2. 遇到网站多看看它的html文件，可能有好东西</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -295,13 +342,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/11/02/2019_11_2/">自己太菜了</a></p>
+        <p><span>本文标题:</span><a href="/2020/02/08/Web安全练习（一）/">Web安全练习（一）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">XTTF</a></p>
-        <p><span>发布时间:</span>2019-11-02, 12:23:27</p>
-        <p><span>最后更新:</span>2019-11-02, 13:51:37</p>
+        <p><span>发布时间:</span>2020-02-08, 12:13:36</p>
+        <p><span>最后更新:</span>2020-02-18, 08:41:40</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/11/02/2019_11_2/" title="自己太菜了">http://yoursite.com/2019/11/02/2019_11_2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/11/02/2019_11_2/　　作者: XTTF" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/02/08/Web安全练习（一）/" title="Web安全练习（一）">http://yoursite.com/2020/02/08/Web安全练习（一）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/02/08/Web安全练习（一）/　　作者: XTTF" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -313,16 +360,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/11/08/我用shodan的那些日子/">
-                    我用shodan的那些日子
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/10/13/如何找到更多的域名之SSL证书/">
-                    如何找到更多的域名之SSL证书
+                <a href="/2020/01/02/Hacker101 之Petshop Pro/">
+                    Hacker101 之Petshop Pro
                 </a>
             </div>
         
@@ -334,7 +375,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#签到题"><span class="toc-number">1.</span> <span class="toc-text">签到题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#md5-collision"><span class="toc-number">2.</span> <span class="toc-text">md5 collision</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#签到2"><span class="toc-number">3.</span> <span class="toc-text">签到2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#这题不是web"><span class="toc-number">4.</span> <span class="toc-text">这题不是web</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#层层递进"><span class="toc-number">5.</span> <span class="toc-text">层层递进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AAencode"><span class="toc-number">6.</span> <span class="toc-text">AAencode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单身二十年"><span class="toc-number">7.</span> <span class="toc-text">单身二十年</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PHP-encode"><span class="toc-number">8.</span> <span class="toc-text">PHP encode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件包含"><span class="toc-number">9.</span> <span class="toc-text">文件包含</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li></ol>
         
     </div>
     <style>
@@ -370,7 +411,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"自己太菜了　| XTTF的小屋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Web安全练习（一）　| XTTF的小屋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -390,15 +431,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/11/08/我用shodan的那些日子/" title="上一篇: 我用shodan的那些日子">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/10/13/如何找到更多的域名之SSL证书/" title="下一篇: 如何找到更多的域名之SSL证书">
+            <a href="/2020/01/02/Hacker101 之Petshop Pro/" title="下一篇: Hacker101 之Petshop Pro">
                 <i class="fa fa-angle-right"></i>
             </a>
         
